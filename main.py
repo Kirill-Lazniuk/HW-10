@@ -29,7 +29,7 @@ while True:
     now = datetime.datetime.now()
     today_date = now.date()
 
-    if now.hour >= config.TARGET_HOUR and now.minute >= config.TARGET_MINUTE:
+    if (now.hour > config.TARGET_HOUR) or (now.hour == config.TARGET_HOUR and now.minute >= config.TARGET_MINUTE):
         if last_sent_date != today_date:
             send_emails()
             last_sent_date = today_date
